@@ -9,7 +9,7 @@ contract BikeChain {
     constructor() {
         owner = msg.sender;
     }
-    // Add youself as a renter
+    // Add youself as a renter;
 
     // Checkout bike
 
