@@ -9,7 +9,22 @@ contract BikeChain {
     constructor() {
         owner = msg.sender;
     }
-    // Add youself as a renter;
+    // Add youself as a renter
+    struct Renter {
+        address payable walletAddress;
+        string firstName;
+        string lastName;
+        bool canRent;
+        bool active;
+        uint due;
+        uint start;
+        uint end;
+    }
+    mapping (address => Renter) public renters;
+
+    function addRenter(address payable walletAddress, string memory firstName, string memory lastName, bool canRent, bool active, uint due, uint start, uint end) public {
+        renters[walletAddress] = Renter(walletAddress, firstName, lastName, canRent, active, due, start, end);
+    }
 
     // Checkout bike
 
